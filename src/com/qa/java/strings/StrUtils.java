@@ -9,7 +9,7 @@ public class StrUtils {
 		int count = 0;
 		
 		for(String email : strArr) {
-	    	if(!email.matches("\\w+@gmail.com")) {
+	    	if(!email.matches("\\w+@[a-zA-Z]+.[a-zA-Z]+")) {
 	    		count++;
 	    	}
 	    }
