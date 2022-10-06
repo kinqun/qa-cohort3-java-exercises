@@ -10,7 +10,7 @@ public class ProductsArray {
 				new Product(1114, "Glove", 10.99f, "Clothing", 3.5f, (byte)15, true),
 				new Product(1115, "Watch", 150f, "Accessory", 4.1f, (byte)35, false)
 		};
-		
+		System.out.println("");
 		Product productWithLowestPrice = utils.getProductWithLowestPrice(prods);
 		System.out.println(productWithLowestPrice.name + " is the product with the lowest price: " + utils.formatPrice(productWithLowestPrice.getFinalPrice()));
 		
