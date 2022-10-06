@@ -11,8 +11,8 @@ public class Audi extends Car {
 		this.isEVAvailable = isEVAvailable;
 	}
 	
-	void getAudiDetails() {
-		getCarDetails();
+	void getCarDetails() {
+		super.getCarDetails();
 		System.out.println("Audi Model: " + this.model);
 		System.out.println("Is EV Available: " + this.isEVAvailable);
 	}

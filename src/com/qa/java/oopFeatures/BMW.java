@@ -10,8 +10,8 @@ public class BMW extends Car{
 		this.maxTorque = maxTorque;
 	}
 	
-	void getBMWDetails() {
-		getCarDetails();
+	void getCarDetails() {
+		super.getCarDetails();
 		System.out.println("Number of Cylinders: " + this.numOfCylinders);
 		System.out.println("Maximum Torque: " + this.maxTorque);
 	}
