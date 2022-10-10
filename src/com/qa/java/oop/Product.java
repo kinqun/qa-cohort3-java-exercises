@@ -1,8 +1,8 @@
 package com.qa.java.oop;
 
 public class Product {
-	int id;
-	String name;
+	public int id;
+	public String name;
 	float price;
 	String category;
 	float rating;
@@ -13,7 +13,7 @@ public class Product {
 	static int SELLER_CONTACT_NUMBER = 123456;
 	static String SELLER_EMAIL = "bob@gmail.com";
 	
-	Product(){
+	public Product(){
 		this.id = 1000;
 		this.name = "default name";
 		this.price = 1000f;
@@ -43,7 +43,7 @@ public class Product {
 		return "$" + String.format("%.2f", res);
 	}
 
-	void getProductInfo() {
+	public void getProductInfo() {
 		System.out.println("Product ID: " + this.id);
 		System.out.println("Product Name: " + this.name);
 		System.out.println("Product Price: " + formatPrice(this.price));

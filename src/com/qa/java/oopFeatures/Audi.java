@@ -1,19 +1,30 @@
 package com.qa.java.oopFeatures;
 
-public class Audi extends Car {
-	String model;
-	boolean isEVAvailable;
+public class Audi implements Car {
+	int id;
+	String name;
+	float price;
+	int engineCC;
+	String fuelType;
+	int manufactureYear;
 	
-	public Audi(int id, String name, float price, int engineCC, String fuelType, int manufactureYear, String model, boolean isEVAvailable) {
-		super(id, name, price, engineCC, fuelType, manufactureYear);
-		
+	String model;
+	boolean isEvAvailable;	
+
+	public Audi(int id, String name, float price, int engineCC, String fuelType, int manufactureYear, String model,
+			boolean isEvAvailable) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.engineCC = engineCC;
+		this.fuelType = fuelType;
+		this.manufactureYear = manufactureYear;
 		this.model = model;
-		this.isEVAvailable = isEVAvailable;
+		this.isEvAvailable = isEvAvailable;
 	}
 
 	@Override
-	void getCarDetails() {
-		//super.getCarDetails();
+	public void getCarDetails() {
 		System.out.println("ID: " + this.id);
 		System.out.println("Name: " + this.name);
 		System.out.println("Price: $" + this.price );
@@ -22,6 +33,6 @@ public class Audi extends Car {
 		System.out.println("Manufacture Year: " + this.manufactureYear);
 		
 		System.out.println("Audi Model: " + this.model);
-		System.out.println("Is EV Available: " + this.isEVAvailable);
+		System.out.println("Is EV Available: " + this.isEvAvailable);
 	}
 }

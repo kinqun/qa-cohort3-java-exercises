@@ -1,18 +1,31 @@
 package com.qa.java.oopFeatures;
 
-public class BMW extends Car{
+public class BMW implements Car{
+	int id;
+	String name;
+	float price;
+	int engineCC;
+	String fuelType;
+	int manufactureYear;
+	
 	int numOfCylinders;
 	float maxTorque;
-	
-	public BMW(int id, String name, float price, int engineCC, String fuelType, int manufactureYear, int numOfCylinders, float maxTorque) {
-		super(id, name, price, engineCC, fuelType, manufactureYear);
+
+	public BMW(int id, String name, float price, int engineCC, String fuelType, int manufactureYear, int numOfCylinders,
+			float maxTorque) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.engineCC = engineCC;
+		this.fuelType = fuelType;
+		this.manufactureYear = manufactureYear;
 		this.numOfCylinders = numOfCylinders;
 		this.maxTorque = maxTorque;
 	}
-	
+
 	@Override
-	void getCarDetails() {
-		//super.getCarDetails();
+	public void getCarDetails() {
 		System.out.println("ID: " + this.id);
 		System.out.println("Name: " + this.name);
 		System.out.println("Price: $" + this.price );
