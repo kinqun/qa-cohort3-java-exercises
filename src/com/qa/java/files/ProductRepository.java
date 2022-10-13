@@ -4,14 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProductRepository {
 	ProductService util = new ProductService();
 		
-	Product[] getProductsFromFile(File filePath) {
-		int productLengthCounter =0;
-		int productsCount = util.getFileEntryCount(filePath);
-		Product[] products = new Product[productsCount];
+	ArrayList<Product> getProductsFromFile(File filePath) {
+		ArrayList<Product> products= new ArrayList<>();
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -25,10 +24,8 @@ public class ProductRepository {
 					if(line != null) {
 						String[] data= line.split(",");
 						
-						Product prod1 = util.createNewProductFromDataString(data);
-						
-						products[productLengthCounter] = prod1;
-						productLengthCounter++;
+						Product prod = util.createNewProductFromDataString(data);
+						products.add(prod);
 					}
 					
 				}
@@ -38,7 +35,6 @@ public class ProductRepository {
 				br.close();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

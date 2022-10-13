@@ -33,7 +33,7 @@ public class Util {
 		}
 		
 		if(product == null) {
-			throw new ProductNotFoundException("product is not found");
+			throw new ProductNotFoundException("...product is not found (Util throw)");
 		}
 		
 		return product;

@@ -18,8 +18,8 @@ public class Main {
 		
 		
 		try {
-			Product prod = null;
-			myObj.getProductDetail(prod);
+			Product product = null;
+			myObj.getProductDetail(product);
 		}catch(NullPointerException e) {
 			System.out.println("...product is null\n");
 		}
@@ -27,10 +27,11 @@ public class Main {
 		
 		
 		try {
-			Product prod = myObj.getProductById(1110);
-			System.out.println(prod.name);
+			Product product = myObj.getProductById(1110);
+			System.out.printf("Found product(id-%s): %s", product.id, product.name);
 		}catch(ProductNotFoundException e) {
-			System.out.println("...product is not found");
+			System.out.println("...product is not found (main exception catch)");
+			System.out.println(e.getMessage());;
 		}
 			
 	}

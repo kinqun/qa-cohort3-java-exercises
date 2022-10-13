@@ -1,60 +1,22 @@
 package com.qa.java.files;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProductService {
 	
 	Product createNewProductFromDataString(String[] data) {
 		Product product = new Product();
 
-		product.setId(Integer.parseInt(data[0]));
-		product.setName(data[1]);
-		product.setPrice(Float.parseFloat(data[2]));
-		product.setCategory(data[3]);
-		product.setDiscount(Byte.parseByte(data[4]));
-		product.setAvailability(data[5].equals("yes") ? true : false);		
+		product.setId(Integer.parseInt(data[0]))
+			.setName(data[1])
+			.setPrice(Float.parseFloat(data[2]))
+			.setCategory(data[3])
+			.setDiscount(Byte.parseByte(data[4]))
+			.setAvailability(data[5].equals("yes") ? true : false)
+			.setRating(Float.parseFloat(data[6]));
 			
 		return product;
-	}
-	
-//	Product[] getGeneratedProductsFromFile() {
-//		Product[] products = null;
-//		
-//		return products;
-//	}
-	
-	int getFileEntryCount(File filePath) {
-		int entryCount = 0;
-		
-		try {
-			
-			String line = null;
-			BufferedReader br = new BufferedReader(new FileReader(filePath));
-			try {
-				line = br.readLine();
-				while(line != null) {
-					line = br.readLine();
-					entryCount++;
-				}
-				
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				br.close();
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return entryCount - 1;
-	}
-	
-	
+	}	
 
 	String formatPrice(float num) {
 		float hundreds;
@@ -76,6 +38,7 @@ public class ProductService {
 		char yesNo;
 		yesNo = product.getAvailability() == true ? 'Y' : 'N';
 		System.out.println("Product Available: " + yesNo);
+		System.out.println("Product Rating: " + product.getRating() + "/5.0");
 		System.out.println("Amount saved: " + this.formatPrice(getDiscountedPrice(product)));
 		System.out.println("Final price: " + this.formatPrice(getFinalPrice(product)));
 		System.out.println("");
@@ -87,5 +50,56 @@ public class ProductService {
 	
 	float getFinalPrice(Product product) {
 		return product.getPrice() - getDiscountedPrice(product);
+	}
+	
+	Product getHighestPricedProduct(ArrayList<Product> prods) {
+		Product product = null;
+		float currentHighestPrice = 0f;
+		
+		for(Product p : prods) {
+			if(p.getPrice() > currentHighestPrice) {
+				currentHighestPrice = p.getPrice();
+				product = p;
+			}
+		}
+		
+		return product;
+	}
+	
+	Product getLowestPricedProduct(ArrayList<Product> prods) {
+		Product product = null;
+		float currentLowestPrice = 1000000f;
+		
+		for(Product p : prods) {
+			if(p.getPrice() < currentLowestPrice) {
+				currentLowestPrice = p.getPrice();
+				product = p;
+			}
+		}
+		
+		return product;
+	}
+	
+	void showProductsByCategory(String category, ArrayList<Product> prods) {
+		
+		for(Product p : prods) {
+			if(p.getCategory().equals(category)) {
+				getProductInfo(p);
+			}
+		}
+	}
+	
+	Product getHighestRatedProduct(ArrayList<Product> prods) {
+		Product product = null;
+		float highestRatedProduct = 0f;
+		
+		for(Product p : prods) {
+			if(p.getRating() > highestRatedProduct) {
+				highestRatedProduct = p.getRating();
+				product = p;
+			}
+		}
+		
+		return product;
 	}
 }
