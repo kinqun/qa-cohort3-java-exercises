@@ -8,7 +8,7 @@ public class Main {
 		ProductRepository prodUtil = new ProductRepository();
 		ProductService util = new ProductService();
 		
-		String filePath = "C:\\Users\\kpqun\\Desktop\\qa\\pasta\\projectPasta\\java_exercises\\src\\com\\qa\\java\\files\\products.csv";
+		String filePath = "C:\\JAVA_WORKSPACE\\qa\\java_exercises\\src\\com\\qa\\java\\files\\products.csv";
 		File file = new File(filePath);
 		ArrayList<Product> prods = prodUtil.getProductsFromFile(file);
 		

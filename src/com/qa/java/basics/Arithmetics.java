@@ -40,6 +40,6 @@ public class Arithmetics {
 		bananaDiscount = 3f;
 		float bananaUpdatedCost;
 		bananaUpdatedCost = bananaCost - (bananaCost * bananaDiscount /100);
-		System.out.println("new banana cost: $" + formatPrice(bananaUpdatedCost));
+		System.out.println("new banana cost:  $" + formatPrice(bananaUpdatedCost));
 	}
 }
